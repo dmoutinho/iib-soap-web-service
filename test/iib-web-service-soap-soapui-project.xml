@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="a63dc536-f54c-45d2-9629-334936aa21fd" activeEnvironment="Default" name="iib-web-service-soap" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="8f091d2c-080c-4648-b08f-d5640dd19d24" wsaVersion="NONE" name="iib-web-service-soapSOAP" type="wsdl" bindingName="{http://br.com.dmoutinho/iib-web-service-soap/}iib-web-service-soapSOAP" soapVersion="1_1" anonymous="optional" definition="http://localhost:7800/iib-web-service-soap?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:7800/iib-web-service-soap?wsdl"><con:part><con:url>http://localhost:7800/iib-web-service-soap?wsdl</con:url><con:content><![CDATA[<!--File message-model\iib-web-service-soap.wsdl, application iib-web-service-soap-->
+<wsdl:definitions name="iib-web-service-soap" targetNamespace="http://br.com.dmoutinho/iib-web-service-soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://br.com.dmoutinho/iib-web-service-soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="iib-web-service-soap_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="iib-web-service-soapSOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://br.com.dmoutinho/iib-web-service-soap/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+      <xsd:include schemaLocation="http://localhost:7800/iib-web-service-soap?xsd=xsd0"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://br.com.dmoutinho/iib-web-service-soap/" schemaLocation="http://localhost:7800/iib-web-service-soap?xsd=xsd1"></xsd:import>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://br.com.dmoutinho/iib-web-service-soap/" schemaLocation="http://localhost:7800/iib-web-service-soap?xsd=xsd1"></xsd:import>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetInsuredRequest">
+    <wsdl:part element="tns:getInsuredRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="GetInsuredResponse">
+    <wsdl:part element="tns:getInsuredResponse" name="response"/>
+  </wsdl:message>
+  <wsdl:portType name="iib-web-service-soap">
+    <wsdl:operation name="GetInsured">
+      <wsdl:input message="tns:GetInsuredRequest" name="request"/>
+      <wsdl:output message="tns:GetInsuredResponse" name="response"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="iib-web-service-soapSOAP" type="tns:iib-web-service-soap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetInsured">
+      <soap:operation soapAction="http://br.com.dmoutinho/iib-web-service-soap/GetInsured"/>
+      <wsdl:input name="request">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="iib-web-service-soap">
+    <wsdl:port binding="tns:iib-web-service-soapSOAP" name="iib-web-service-soapSOAP">
+      <soap:address location="http://localhost:7800/iib-web-service-soap"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:7800/iib-web-service-soap?xsd=xsd1</con:url><con:content><![CDATA[<!--File message-model\iib-web-service-soap.xsd, application iib-web-service-soap-->
+<xsd:schema targetNamespace="http://br.com.dmoutinho/iib-web-service-soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dm="http://br.com.dmoutinho/iib-web-service-soap/">
+  <xsd:complexType name="Return">
+    <xsd:annotation>
+      <xsd:documentation>1 - Success</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="code" type="xsd:string"></xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Insured">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:int"></xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="name" type="xsd:string"></xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="idDocument" type="xsd:string"></xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="type" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>PF - 1
+						PJ - 2</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetInsuredRequest">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="idDocument" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetInsuredResponse">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="insured" type="dm:Insured"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="return" type="dm:Return"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getInsuredRequest" type="dm:GetInsuredRequest"/>
+  <xsd:element name="getInsuredResponse" type="dm:GetInsuredResponse"/>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:7800/iib-web-service-soap?xsd=xsd0</con:url><con:content>&lt;!--File message-model\iib-web-service-soap_InlineSchema1.xsd, application iib-web-service-soap-->
+&lt;xsd:schema targetNamespace="http://br.com.dmoutinho/iib-web-service-soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://br.com.dmoutinho/iib-web-service-soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;/xsd:schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:7800/iib-web-service-soap</con:endpoint></con:endpoints><con:operation id="a3ce1024-aa01-42d5-b567-96fe11f282f6" isOneWay="false" action="http://br.com.dmoutinho/iib-web-service-soap/GetInsured" name="GetInsured" bindingOperationName="GetInsured" type="Request-Response" outputName="response" inputName="request" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="62331be4-c521-4967-b447-3b83b89e40f4" name="Galeano" wssPasswordType="PasswordText"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@follow-redirects">true</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7800/iib-web-service-soap</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:iib="http://br.com.dmoutinho/iib-web-service-soap/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <iib:getInsuredRequest>\r
+         <idDocument>26608553668</idDocument>\r
+      </iib:getInsuredRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>username</con:username><con:password>password</con:password><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://br.com.dmoutinho/iib-web-service-soap/GetInsured"/><con:wsrmConfig version="1.2"/></con:call><con:call id="6a5141fd-488c-48d6-a1b4-f67338422b5f" name="NotFound"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7800/iib-web-service-soap</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:iib="http://br.com.dmoutinho/iib-web-service-soap/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <iib:getInsuredRequest>\r
+         <idDocument>111</idDocument>\r
+      </iib:getInsuredRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://br.com.dmoutinho/iib-web-service-soap/GetInsured"/><con:wsrmConfig version="1.2"/></con:call><con:call id="1bbb2427-64a7-4a2b-aa65-1469fdcd4d73" name="Nietzsche"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7800/iib-web-service-soap</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:iib="http://br.com.dmoutinho/iib-web-service-soap/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <iib:getInsuredRequest>\r
+         <idDocument>69954447792</idDocument>\r
+      </iib:getInsuredRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>1</con:username><con:password>1</con:password><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://br.com.dmoutinho/iib-web-service-soap/GetInsured"/><con:wsrmConfig version="1.2"/></con:call><con:call id="958d484b-a9ee-46f5-a3cc-73be4f8330f6" name="ValidationError"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7800/iib-web-service-soap</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:iib="http://br.com.dmoutinho/iib-web-service-soap/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <iib:getInsuredRequest>\r
+      </iib:getInsuredRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://br.com.dmoutinho/iib-web-service-soap/GetInsured"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="05ff3df7-13a3-4e69-9c4c-f7852d646251" port="8080" path="/" host="W764-PC" name="MockService 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="GetInsured" id="4c011fee-baf7-48b9-81e3-48e5efc99996" interface="iib-web-service-soapSOAP" operation="GetInsured"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="05131121-7c29-4186-9745-7a2202fbeaec" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:iib="http://br.com.dmoutinho/iib-web-service-soap/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <iib:getInsuredResponse>
+         <!--Optional:-->
+         <insured>
+            <id>?</id>
+            <name>?</name>
+            <idDocument>?</idDocument>
+            <type>?</type>
+         </insured>
+         <return>
+            <code>?</code>
+            <!--Optional:-->
+            <message>?</message>
+         </return>
+      </iib:getInsuredResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://br.com.dmoutinho/iib-web-service-soap/GetInsured"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

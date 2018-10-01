@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmSOAPInput.msgnode="ComIbmSOAPInput.msgnode" xmlns:ComIbmSOAPReply.msgnode="ComIbmSOAPReply.msgnode" xmlns:br_com_dmoutinho_subflow_GetInsuredFailure.subflow="br/com/dmoutinho/subflow/GetInsuredFailure.subflow" xmlns:br_com_dmoutinho_subflow_GetInsuredProvider.subflow="br/com/dmoutinho/subflow/GetInsuredProvider.subflow" xmlns:br_com_dmoutinho_subflow_GetInsuredTimeout.subflow="br/com/dmoutinho/subflow/GetInsuredTimeout.subflow"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="br/com/dmoutinho/flow/GetInsured.msgflow" nsPrefix="br_com_dmoutinho_flow_GetInsured.msgflow">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmSOAPInput.msgnode="ComIbmSOAPInput.msgnode" xmlns:ComIbmSOAPReply.msgnode="ComIbmSOAPReply.msgnode" xmlns:br_com_dmoutinho_subflow_Authentication.subflow="br/com/dmoutinho/subflow/Authentication.subflow" xmlns:br_com_dmoutinho_subflow_GetInsuredFailure.subflow="br/com/dmoutinho/subflow/GetInsuredFailure.subflow" xmlns:br_com_dmoutinho_subflow_GetInsuredProvider.subflow="br/com/dmoutinho/subflow/GetInsuredProvider.subflow"
+    xmlns:br_com_dmoutinho_subflow_GetInsuredTimeout.subflow="br/com/dmoutinho/subflow/GetInsuredTimeout.subflow" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="br/com/dmoutinho/flow/GetInsured.msgflow" nsPrefix="br_com_dmoutinho_flow_GetInsured.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
     <translation xmi:type="utility:TranslatableString" key="GetInsured" bundleName="br/com/dmoutinho/flow/GetInsured" pluginId="iib-web-service-soap"/>
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/iib-web-service-soap/icons/full/obj16/GetInsured.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/iib-web-service-soap/icons/full/obj30/GetInsured.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmSOAPInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="19,103" wsdlFileName="message-model/iib-web-service-soap.wsdl" selectedPortType="iib-web-service-soap" selectedBinding="iib-web-service-soapSOAP" selectedPort="iib-web-service-soapSOAP" targetNamespace="http://br.com.dmoutinho/iib-web-service-soap/" useHTTPTransport="true" urlSelector="/iib-web-service-soap" maxClientWaitTime="3" allowQueryWSDL="true" populateLocalEnvWithWSAInfo="true" parserXmlnscBuildTreeUsingXMLSchema="false"
+      <nodes xmi:type="ComIbmSOAPInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,104" wsdlFileName="message-model/iib-web-service-soap.wsdl" selectedPortType="iib-web-service-soap" selectedBinding="iib-web-service-soapSOAP" selectedPort="iib-web-service-soapSOAP" targetNamespace="http://br.com.dmoutinho/iib-web-service-soap/" useHTTPTransport="true" urlSelector="/iib-web-service-soap" maxClientWaitTime="3" allowQueryWSDL="true" populateLocalEnvWithWSAInfo="true" parserXmlnscBuildTreeUsingXMLSchema="false"
           validateMaster="none">
         <translation xmi:type="utility:ConstantString" string="SOAP Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmSOAPReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="308,100">
+      <nodes xmi:type="ComIbmSOAPReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="394,104">
         <translation xmi:type="utility:ConstantString" string="SOAP Reply"/>
       </nodes>
-      <nodes xmi:type="br_com_dmoutinho_subflow_GetInsuredProvider.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="150,99">
+      <nodes xmi:type="br_com_dmoutinho_subflow_GetInsuredProvider.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="231,60">
         <translation xmi:type="utility:ConstantString" string="GetInsuredProvider"/>
       </nodes>
-      <nodes xmi:type="br_com_dmoutinho_subflow_GetInsuredFailure.subflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="158,33">
+      <nodes xmi:type="br_com_dmoutinho_subflow_GetInsuredFailure.subflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="234,-6">
         <translation xmi:type="utility:ConstantString" string="GetInsuredFailure"/>
       </nodes>
-      <nodes xmi:type="br_com_dmoutinho_subflow_GetInsuredTimeout.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="157,173">
+      <nodes xmi:type="br_com_dmoutinho_subflow_GetInsuredTimeout.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="189,176">
         <translation xmi:type="utility:ConstantString" string="GetInsuredTimeout"/>
+      </nodes>
+      <nodes xmi:type="br_com_dmoutinho_subflow_Authentication.subflow:FCMComposite_1" xmi:id="FCMComposite_1_9" location="135,100">
+        <translation xmi:type="utility:ConstantString" string="Authentication"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.Input"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.Input"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_14" targetNode="FCMComposite_1_9" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_15" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_9" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_16" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_9" sourceTerminalName="OutTerminal.Output1" targetTerminalName="InTerminal.in"/>
     </composition>
     <propertyOrganizer/>
     <stickyBoard/>
