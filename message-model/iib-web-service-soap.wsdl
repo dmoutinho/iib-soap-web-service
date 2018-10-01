@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	name="iib-web-service-soap" targetNamespace="http://br.com.dmoutinho/iib-web-service-soap/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://br.com.dmoutinho/iib-web-service-soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<wsdl:documentation>
+		<wsdl:appinfo source="WMQI_APPINFO">
+			<MRWSDLAppInfo imported="true">
+				<generatedXSD location="iib-web-service-soap_InlineSchema1.xsd" />
+				<binding hasEncoding="false" imported="true"
+					name="iib-web-service-soapSOAP" originalBindingStyle="document" />
+			</MRWSDLAppInfo>
+		</wsdl:appinfo>
+	</wsdl:documentation>
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://br.com.dmoutinho/iib-web-service-soap/"
+			xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+			<xsd:include schemaLocation="iib-web-service-soap_InlineSchema1.xsd" />
+		</xsd:schema>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://br.com.dmoutinho/iib-web-service-soap/"
+				schemaLocation="iib-web-service-soap.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://br.com.dmoutinho/iib-web-service-soap/"
+				schemaLocation="iib-web-service-soap.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="GetInsuredRequest">
+		<wsdl:part element="tns:getInsuredRequest" name="request" />
+	</wsdl:message>
+	<wsdl:message name="GetInsuredResponse">
+		<wsdl:part element="tns:getInsuredResponse" name="response" />
+	</wsdl:message>
+	
+	<wsdl:portType name="iib-web-service-soap">
+		<wsdl:operation name="GetInsured">
+			<wsdl:input message="tns:GetInsuredRequest" name="request" />
+			<wsdl:output message="tns:GetInsuredResponse" name="response" />
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="iib-web-service-soapSOAP" type="tns:iib-web-service-soap">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetInsured">
+			<soap:operation
+				soapAction="http://br.com.dmoutinho/iib-web-service-soap/GetInsured" />
+			<wsdl:input name="request">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="response">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="iib-web-service-soap">
+		<wsdl:port binding="tns:iib-web-service-soapSOAP" name="iib-web-service-soapSOAP">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

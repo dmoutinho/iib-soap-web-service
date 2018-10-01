@@ -1,0 +1,18 @@
+BROKER SCHEMA br.com.dmoutinho.esql
+
+CREATE COMPUTE MODULE GetInsuredTimeout
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- DELETE FIELD OutputRoot.localEnvironment.SOAP.Input.Timeout;
+
+		--SET Environment.SOAP.Input.Timeout.OriginalClientWaitTime = NULL;
+		--SET Environment.SOAP.Input.Timeout.OriginalMessageMadeTheFlow = NULL;
+		--SET Environment.SOAP.Input.Timeout.OriginalInboundMessage = NULL;
+								
+		--SET OutputRoot.localEnvironment.SOAP.Input.Timeout = NULL;
+		
+		SET OutputRoot.SOAP.Body.ns1:getInsuredResponse.return.code = CD_TIME_OUT;
+		SET OutputRoot.SOAP.Body.ns1:getInsuredResponse.return.message = Environment.SOAP.Input.Transport.HTTP.MaxClientWaitTime;
+		RETURN TRUE;
+	END;
+END MODULE;

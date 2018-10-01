@@ -1,0 +1,10 @@
+BROKER SCHEMA br.com.dmoutinho.esql
+
+CREATE COMPUTE MODULE GetInsuredFailure
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.SOAP.Body.ns1:getInsuredResponse.return.code = CD_FAILURE;
+		SET OutputRoot.SOAP.Body.ns1:getInsuredResponse.return.message = MSG_FAILURE;
+		RETURN TRUE;
+	END;
+END MODULE;
